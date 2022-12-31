@@ -1,4 +1,4 @@
-var url = "http://stardash.de:5232/joe/4e566d71-06bb-9559-994e-3e48cc19e97c/"
+var url = "http://localhost:5232/joe/4e566d71-06bb-9559-994e-3e48cc19e97c/"
 var username = "joe"
 var password = "johannw2004"
 
@@ -7,7 +7,7 @@ const Scrapegoat = require("scrapegoat");
 const moment = require("moment");
 
 const app = express()
-const PORT = 9898;
+const PORT = 7779;
 app.use(express.json())
 
 app.listen(
@@ -19,7 +19,7 @@ app.get("/next_event", (req, res) => {
 
     getnext(function (event) {
         res.status(200).send({
-            event
+            event: event
         })
     })
 })
@@ -70,7 +70,8 @@ async function getnext(callback) {
     scrapegoat.getEventsByTime(start, end).then(function (res) {
   
         console.log(res[0])
-        return callback(res[0])
+        var text = res[0].data.title+"\n"+res[0].data.location+"\n"+res[0].data.start
+        return callback(text)
 
     });
 }
