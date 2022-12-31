@@ -1,0 +1,19 @@
+{
+  "name": "caldavserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cal.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joewilliams007/caldavServer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joewilliams007/caldavServer/issues"
+  },
+  "homepage": "https://github.com/joewilliams007/caldavServer#readme"
+}
