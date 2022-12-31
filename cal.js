@@ -1,6 +1,6 @@
 var url = "http://localhost:5232/joe/4e566d71-06bb-9559-994e-3e48cc19e97c/"
 var username = "joe"
-var password = "johannw2004"
+var password = "johannw2004";
 
 const express = require('express');
 const Scrapegoat = require("scrapegoat");
