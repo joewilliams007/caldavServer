@@ -70,10 +70,8 @@ async function getnext(callback) {
     scrapegoat.getEventsByTime(start, end).then(function (res) {
   
         console.log(res[0])
-        var text = res[0].data.title+"\n"+res[0].data.location+"\n"+res[0].data.start
+        var text = res[0].data.title+"\n"+res[0].data.location+"\n"+moment(res[0].data.start).format('DD.MM.YYYY[\n]h:mm a')+" - "+moment(res[0].data.end).format('h:mm a');;
         return callback(text)
 
     });
 }
-
-
