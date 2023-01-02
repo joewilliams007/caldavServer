@@ -69,8 +69,11 @@ async function getnext(callback) {
         console.log (start+"\n"+end)
     scrapegoat.getEventsByTime(start, end).then(function (res) {
   
+        var d = new Date();
+        var n = d.toLocaleTimeString();
+
         console.log(res[0])
-        var text = res[0].data.title+"\n"+res[0].data.location+"\n"+moment(res[0].data.start).format('DD.MM.YYYY[\n]h:mm a')+" - "+moment(res[0].data.end).format('h:mm a');;
+        var text = res[0].data.title+"\n"+res[0].data.location+"\n"+moment(res[0].data.start).format('DD.MM.YYYY[\n]h:mm a')+" - "+moment(res[0].data.end).format('h:mm a')+"\n\nlast snyced "+n;
         return callback(text)
 
     });
