@@ -72,7 +72,7 @@ async function getnext(callback) {
 
         var now = new moment();
         console.log(res[0])
-        var text = res[0].data.title+"\n"+res[0].data.location+"\n"+moment(res[0].data.start).format('DD.MM.YYYY[\n]h:mm a')+" - "+moment(res[0].data.end).format('h:mm a')+"\n\nsnyced "+now.format("HH");
+        var text = res[0].data.title+"\n"+res[0].data.location+"\n"+moment(res[0].data.start).format('DD.MM.YYYY[\n]h:mm a')+" - "+moment(res[0].data.end).format('h:mm a')+" "+now.format("HH");
         return callback(text)
 
     });
