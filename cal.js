@@ -17,9 +17,14 @@ app.listen(
 
 app.get("/next_event", (req, res) => {
 
-    getnext(function (event) {
+    getnext(function (event, title, location, start, end, time) {
         res.status(200).send({
-            event: event
+            event: event,
+            title: title,
+            location: location,
+            start: start,
+            end: end,
+            time: time
         })
     })
 })
@@ -71,9 +76,12 @@ async function getnext(callback) {
   
 
         var now = new moment();
-        console.log(res[0])
+        // console.log(res[0])
+        var d = new Date();
+        var n = d.toLocaleTimeString();
+
         var text = res[0].data.title+"\n"+res[0].data.location+"\n"+moment(res[0].data.start).format('DD.MM.YYYY[\n]h:mm a')+" - "+moment(res[0].data.end).format('h:mm a')+" "+now.format("HH");
-        return callback(text)
+        return callback(text, res[0].data.title, res[0].data.location, moment(res[0].data.start).format('DD.MM.YYYY[\n]h:mm a'), moment(res[0].data.end).format('DD.MM.YYYY[\n]h:mm a'), n)
 
     });
 }
