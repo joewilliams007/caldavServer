@@ -85,3 +85,6 @@ async function getnext(callback) {
 
     });
 }
+process.on('uncaughtException', err => {
+    console.error(err && err.stack)
+});
